@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Biz Strategy Lab</title>
+    <title>AI 모델설계 연구소 - AI Biz Strategy Lab</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -47,71 +47,9 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 0;
         }
-        @media (min-width: 768px) {
-            .hero-video {
-                border-radius: 1.5rem;
-            }
-        }
-        .news-item-1 {
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        .news-item-2 {
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        .news-item-3 {
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-        .news-item-4 {
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
-        .news-item-5 {
-            animation: fadeInUp 1s ease-out 1.0s both;
-        }
-        .cta-text-1 {
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        .cta-text-2 {
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        .cta-text-3 {
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-        .cta-text-4 {
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
-        .cta-text-5 {
-            animation: fadeInUp 1s ease-out 1.0s both;
-        }
-        .cta-text-6 {
-            animation: fadeInUp 1s ease-out 1.2s both;
-        }
-        .cta-text-7 {
-            animation: fadeInUp 1s ease-out 1.4s both;
-        }
-        /* Section Animations */
-        .section-title {
-            animation: fadeInUp 1s ease-out 0.2s both;
-        }
-        .animate-1 {
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        .animate-2 {
-            animation: fadeInUp 1s ease-out 0.6s both;
-        }
-        .animate-3 {
-            animation: fadeInUp 1s ease-out 0.8s both;
-        }
-        .animate-4 {
-            animation: fadeInUp 1s ease-out 1.0s both;
-        }
-        .animate-5 {
-            animation: fadeInUp 1s ease-out 1.2s both;
-        }
-        .animate-6 {
-            animation: fadeInUp 1s ease-out 1.4s both;
-        }
+        /* News and CTA animations removed */
+        /* Section Animations Removed */
         .slider-container {
             overflow: hidden;
             width: 100%;
@@ -125,6 +63,91 @@
             flex-shrink: 0;
             width: 280px;
             margin-right: 20px;
+        }
+        .border-blue-100 {
+            border-color: #f0f9ff;
+        }
+        .animated-bg {
+            background: linear-gradient(-45deg, #1e40af, #3b82f6, #60a5fa, #2563eb);
+            background-size: 400% 400%;
+            animation: gradientShift 8s ease infinite;
+        }
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        .parallax-bg {
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23111827;stop-opacity:1" /><stop offset="100%" style="stop-color:%23374151;stop-opacity:1" /></linearGradient></defs><rect width="1200" height="800" fill="url(%23grad1)"/><circle cx="200" cy="150" r="3" fill="%23ffffff" opacity="0.1"/><circle cx="800" cy="300" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="1000" cy="100" r="1" fill="%23ffffff" opacity="0.1"/><circle cx="400" cy="600" r="2" fill="%23ffffff" opacity="0.1"/><circle cx="600" cy="700" r="1" fill="%23ffffff" opacity="0.1"/><path d="M0,400 Q300,200 600,400 T1200,400 V800 H0 Z" fill="%23000000" opacity="0.2"/></svg>');
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .snap-section {
+            scroll-snap-align: start;
+            min-height: 100vh;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            animation: bounce 2s infinite;
+        }
+        .scroll-arrow {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+        .parallax-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .parallax-content {
+            position: relative;
+            z-index: 2;
         }
         @keyframes slideLeftRight {
             0% {
@@ -165,55 +188,356 @@
     <header class="navbar navbar-transparent fixed top-0 w-full z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="navbar-brand">
-                <div class="text-lg font-black leading-tight text-blue-600 logo-main">AI BIZ</div>
-                <div class="text-sm font-light leading-tight">STRATEGY</div>
-                <div class="text-sm font-light leading-tight">LAB</div>
+                <div class="text-lg font-black leading-tight text-blue-600 logo-main">AI 모델설계</div>
+                <div class="text-sm font-light leading-tight">연구소</div>
             </div>
             <nav class="hidden md:flex space-x-6">
                 <a href="#about" class="navbar-link hover:text-red-500 transition">소개</a>
                 <a href="#services" class="navbar-link hover:text-red-500 transition">서비스</a>
-                <a href="#contact" class="navbar-link hover:text-red-500 transition">문의</a>
+                <a href="#contact" class="navbar-link hover:text-red-500 transition">연락처</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center px-0 md:px-4" style="height: 100vh; margin-top: 0;">
+    <section class="relative h-screen flex items-center justify-center snap-section" style="height: 100vh; margin-top: 0;">
         <div class="absolute top-20 right-4 md:right-10 floating-banner">
             <div class="relative">
                 <div class="bg-white rounded-full px-4 md:px-6 py-2 md:py-3 flex items-center space-x-2 cursor-pointer transition hover:bg-blue-50 border border-blue-100">
                     <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span class="text-blue-600 font-bold text-sm md:text-base">도입 문의하기</span>
+                    <span class="text-blue-600 font-bold text-sm md:text-base">상담 신청하기</span>
                     <svg class="w-4 h-4 md:w-5 md:h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-3.582 8-8 8a8.955 8.955 0 01-2.813-.461L5 21l1.539-5.188A7.955 7.955 0 015 12C5 7.582 8.582 4 13 4s8 3.582 8 8z"></path>
                     </svg>
                 </div>
                 <div class="absolute top-full mt-2 right-0 bg-blue-600 text-white px-3 py-2 rounded-lg text-xs whitespace-nowrap opacity-0 hover:opacity-100 transition shadow-lg">
-                    지금 바로 상담 가능합니다 😊
+                    지금 바로 상담 가능합니다
                 </div>
             </div>
         </div>
 
-        <div class="mx-auto text-center w-full h-full md:w-[95%] md:h-[95%]">
-            <div class="relative bg-gray-200 rounded-none md:rounded-3xl p-8 sm:p-12 md:p-16 mb-0 md:mb-12 h-full flex flex-col justify-center overflow-hidden">
+        <div class="mx-auto text-center w-full h-full">
+            <div class="relative bg-gray-200 p-8 sm:p-12 md:p-16 h-full flex flex-col justify-center overflow-hidden">
                 <video class="hero-video" autoplay muted loop playsinline disablepictureinpicture webkit-playsinline>
                     <source src="assets/videos/hero-video.mp4" type="video/mp4">
                     <source src="assets/videos/hero-video.webm" type="video/webm">
                     Your browser does not support the video tag.
                 </video>
                 <div class="relative z-10">
-                    <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white mb-4 hero-text-1">당신의 비즈니스, AI로 다시 설계하다.</h2>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white mb-4 hero-text-1">AI 기술보다 중요한 건 '목적설계'입니다.</h2>
                     <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-8 hero-text-2">
-                        <span class="font-bold">AI Biz Strategy Lab</span>
+                        <span class="font-bold">AI 모델설계 연구소</span>
                     </h1>
+                    <p class="text-lg sm:text-xl text-white/90 hero-text-2">
+                        우리는 개발이 아닌 '모델 설계'로 시작합니다.<br>
+                        기술은 도구일 뿐, 당면한 문제 해결이 목표이기 때문입니다.
+                    </p>
                 </div>
             </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+            <p class="text-white/80 text-sm mt-2 text-center">SCROLL DOWN</p>
 
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="container mx-auto px-4 py-60">
+    <!-- Why AI Projects Fail Section -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 parallax-content w-full">
+            <div class="max-w-4xl mx-auto p-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">AI 프로젝트, 왜 실패할까요?</h2>
+                    <div class="space-y-6">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            많은 기업들이 AI를 도입하지만, 기대한 만큼의 성과를 내지 못하는 경우가 적지 않습니다.
+                        </p>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            이유는 단순히 '기술이 부족해서'가 아닙니다.<br>
+                            <span class="font-bold text-white">현실을 반영한 설계가 부족했기 때문입니다.</span>
+                        </p>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            실제 업무 흐름과 실무자의 고민, 그리고 기업마다 다른 외부 환경까지 제대로 이해하지 못한 채 만들어진 AI는, 
+                            결국 '개발을 위한 개발'로 끝나버립니다.
+                        </p>
+                        <p class="text-xl md:text-2xl font-bold text-white leading-relaxed">
+                            저희는 이 지점을 <span class="text-white">모델 설계</span>라는 과정을 통해 해결합니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI needs more than single technology -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 parallax-content w-full">
+            <div class="max-w-4xl mx-auto p-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">AI는 이제 '기술 하나'로는 부족합니다.</h2>
+                    <div class="space-y-6">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            이제는 단일 기술만으로는 문제를 해결하기 어렵습니다.
+                        </p>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            자연어 처리, 예측 모델, 추천 시스템, 이상 탐지 등 다양한 기술들이 유기적으로 연결되고,
+                            그 안에서 현장에 최적화된 구조가 만들어져야만 실제 효과로 이어질 수 있습니다.
+                        </p>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            이 모든 기술의 가능성과 제약을 고려해,<br>
+                            <span class="font-bold text-white">현실에 맞는 실용적 구조를 설계하는 것</span><br>
+                            그게 바로 <span class="text-white font-bold">모델 설계</span>입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design capability over technology -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 parallax-content w-full">
+            <div class="max-w-4xl mx-auto p-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">기술보다 중요한 것은 'AI설계력'입니다.</h2>
+                    <div class="space-y-6">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            많은 AI 개발사들은 자사의 보유 기술에 기반한 제안을 합니다.<br>
+                            하지만 그런 방식으로는 진짜 고객 맞춤형 설계를 만들기 어렵습니다.
+                        </p>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            자기 기술에 맞춘 개발은 가능하지만, <span class="font-bold text-white">고객 문제에 맞춘 설계는 어렵기 때문입니다.</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our different approach -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 parallax-content w-full">
+            <div class="max-w-4xl mx-auto p-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">우리는 다르게 접근합니다.</h2>
+                    <div class="space-y-6">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            저희는 기술이 아닌 <span class="font-bold text-white">'문제'</span>에서 출발합니다.
+                        </p>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            수백가지나 되는 특정 AI구현 기술을 먼저 결정하기 보다,<br>
+                            고객이 겪는 현실을 함께 이해하고, 필요한 구조를 먼저 설계합니다.
+                        </p>
+                        <p class="text-xl md:text-2xl font-bold text-white leading-relaxed">
+                            기술은 그 뒤에 오는 도구일 뿐입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why we exist -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 parallax-content w-full">
+            <div class="max-w-4xl mx-auto p-8">
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">우리가 존재하는 이유</h2>
+                    <div class="space-y-6">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            우리는 다양한 기술과 경험을 융합하여,<br>
+                            여러분의 조직에 가장 적합한 AI 구조를 설계합니다.
+                        </p>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            단순한 기술 제안이 아닌,<br>
+                            <span class="font-bold text-white">실제 업무에 녹아들 수 있는 구조.</span>
+                        </p>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                            그걸 설계하는 것,<br>
+                            <span class="text-white font-bold">그게 바로 우리가 하는 일입니다.</span>
+                        </p>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Flow Section -->
+    <section class="bg-white snap-section">
+        <div class="container mx-auto px-4 h-full flex flex-col justify-center">
+            <h2 class="text-3xl font-bold mb-16 text-center">서비스 흐름도</h2>
+            
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
+                    <!-- Step 1 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+                            1
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">현장 문제 파악</h3>
+                        <p class="text-sm text-gray-600">"고객과의 대화로부터 시작합니다"</p>
+                    </div>
+                    
+                    <!-- Arrow -->
+                    <div class="hidden md:flex items-center justify-center">
+                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+                            2
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">모델 설계</h3>
+                        <p class="text-sm text-gray-600">"해결을 위한 구조를 먼저 만듭니다"</p>
+                    </div>
+                    
+                    <!-- Arrow -->
+                    <div class="hidden md:flex items-center justify-center">
+                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+                            3
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">기술 선택</h3>
+                        <p class="text-sm text-gray-600">"목적에 맞는 기술을 고릅니다"</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-12 md:ml-20">
+                    <!-- Step 4 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+                            4
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">AI 개발 연계</h3>
+                        <p class="text-sm text-gray-600">"개발자 언어로 정확히 전달합니다"</p>
+                    </div>
+                    
+                    <!-- Step 5 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
+                            5
+                        </div>
+                        <h3 class="font-bold text-lg mb-2">적용 및 피드백</h3>
+                        <p class="text-sm text-gray-600">"현장에서 작동하는 AI로 검증합니다"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="snap-section bg-white">
+        <div class="container mx-auto px-4 h-full flex flex-col justify-center">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">기존 방식 VS 우리 방식</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Traditional Approach -->
+                <div class="bg-white border border-blue-100 rounded-2xl p-8">
+                    <h3 class="text-xl font-bold mb-6 text-gray-600">기존 방식</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3">×</span>
+                            <span class="text-gray-700">기술이 먼저, 고객은 나중</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3">×</span>
+                            <span class="text-gray-700">자사 기술 중심 제안</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-red-500 mr-3">×</span>
+                            <span class="text-gray-700">모델 없이 개발로 직행</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Our Approach -->
+                <div class="bg-white rounded-2xl p-8 border-2 border-blue-100">
+                    <h3 class="text-xl font-bold mb-6 text-blue-600">우리 방식</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <span class="text-gray-700">문제가 먼저, 기술은 그 다음</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <span class="text-gray-700">목적 중심 구조 설계</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3">•</span>
+                            <span class="text-gray-700">모델 설계→기술조합→개발</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Original Services Section (kept for reference) -->
+    <section class="container mx-auto px-4 py-60" style="display: none;">
         <div class="text-left mb-16">
             <h3 class="text-3xl font-bold mb-4 section-title">
                 우리가 하는 일,<br>
@@ -297,7 +621,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-4 lg:grid-rows-2 gap-6 mt-12 lg:h-[500px]">
                 <!-- 왼쪽 위 카드 -->
-                <div class="lg:col-span-2 lg:row-span-1 bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-center min-h-[200px] lg:min-h-0 animate-1">
+                <div class="lg:col-span-2 lg:row-span-1 bg-white border border-blue-100 rounded-2xl p-8 flex flex-col justify-center min-h-[200px] lg:min-h-0">
                     <div class="flex items-center justify-start mb-6">
                         <i class="fas fa-cogs text-blue-600 text-xl"></i>
                     </div>
@@ -311,7 +635,7 @@
                 </div>
 
                 <!-- 오른쪽 큰 카드 (세로로 길게) -->
-                <div class="lg:col-span-2 lg:row-span-2 bg-white border border-gray-200 rounded-2xl p-8 lg:p-12 flex flex-col justify-center min-h-[200px] lg:min-h-0 animate-2">
+                <div class="lg:col-span-2 lg:row-span-2 bg-white border border-blue-100 rounded-2xl p-8 lg:p-12 flex flex-col justify-center min-h-[200px] lg:min-h-0">
                     <div class="flex items-center justify-start mb-6">
                         <i class="fas fa-network-wired text-blue-600 text-xl"></i>
                     </div>
@@ -325,7 +649,7 @@
                 </div>
 
                 <!-- 왼쪽 아래 카드 -->
-                <div class="lg:col-span-2 lg:row-span-1 bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-center min-h-[200px] lg:min-h-0 animate-3">
+                <div class="lg:col-span-2 lg:row-span-1 bg-white border border-blue-100 rounded-2xl p-8 flex flex-col justify-center min-h-[200px] lg:min-h-0">
                     <div class="flex items-center justify-start mb-6">
                         <i class="fas fa-chart-line text-blue-600 text-xl"></i>
                     </div>
@@ -340,231 +664,334 @@
             </div>
         </div>
 
-        <!-- Case Studies -->
-        <div class="mb-20 pt-60">
-            <h2 class="text-3xl font-bold mb-12 section-title">
-                다양한 산업분야에서<br>
-                성공적으로 진행된<br>
-                AI 도입 사례와<br>
-                전략적 접근법
+    </section>
+
+    <!-- Detailed Case Studies Section -->
+    <section class="bg-white snap-section overflow-y-auto">
+        <div class="container mx-auto px-4 h-full overflow-y-auto py-16">
+            <h2 class="text-3xl font-bold mb-16 text-center">
+                실제 사례에서 찾는, 우리 회사에 딱 맞는 AI 전략
             </h2>
 
-            <div class="slider-container mt-12">
-                <div class="slider-track">
-                    <!-- 기존 4개 + 새로운 12개 = 총 16개 -->
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">보험</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">콜센터 민원 분류<br>보험금 청구 자동화<br>리스크 평가 시스템</p>
+            <div class="space-y-20 max-w-5xl mx-auto">
+                <!-- Case Study 1: Insurance -->
+                <div class="bg-white rounded-2xl p-8 md:p-12">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-600">1. 보험 – 언더라이팅 AI자동화 사례</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 문제</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            언더라이팅에 수작업 검토 시간이 지나치게 길고, 심사기준도 담당자별로 상이함.<br>
+                            고객 대응 속도 저하 + 인건비 증가 + 심사 오류 리스크 발생.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 모델 설계 기획</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            다양한 보험 상품군별 리스크 기준, 과거 승인/거절 사례 분석,<br>
+                            현업 언더라이터와 인터뷰를 통해 실제 심사 기준 요소 도출.<br>
+                            심사 기준을 계량화하고, 누락된 위험요소를 반영하는 룰-기반 + 확률모델 병행 방식으로 설계.<br>
+                            '업무 흐름 기준'으로 AI가 어느 지점에서 개입해야 효과적인지도 모델링.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 접근</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            과거 8년간 심사 데이터 학습 → 조건별 리스크 스코어 산출<br>
+                            고객 입력정보 + 외부공공데이터 (질병통계 등) 연동<br>
+                            룰 기반 필터링 + XGBoost 기반 리스크 예측 모델 동시 탑재
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 결과</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">53%</p>
+                                <p class="text-sm text-gray-700">평균 언더라이팅 소요 시간 단축</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">28%</p>
+                                <p class="text-sm text-gray-700">담당자 간 일관성 향상 (오류율 감소)</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">+</p>
+                                <p class="text-sm text-gray-700">초기 상품 승인률 + 고객 응답 속도 상승</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-shopping-cart text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">유통</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">재고 예측 시스템<br>개인화 추천 엔진<br>진열 최적화 AI</p>
+                </div>
+
+                <!-- Case Study 2: Retail -->
+                <div class="bg-white rounded-2xl p-8 md:p-12">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-600">2. 유통 – 개인화 AI추천 시스템</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 문제</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            쇼핑몰 방문자 수는 증가하지만 구매전환율은 정체.<br>
+                            고객의 '의도'를 파악하지 못해 무의미한 상품 추천 반복.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 모델 설계 기획</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            구매 데이터 외에도 고객의 페이지 체류 시간, 장바구니, 스크롤 패턴 등<br>
+                            '의도 신호'를 포착할 수 있는 행동지표 항목을 우선 정의.<br>
+                            마케팅팀과 협업해, 실제 마케팅 메시지 전환 기준을 반영한 고객 분류 기준을 설정.<br>
+                            이탈 직전 고객군을 잡아내는 트리거 조건 정의도 함께 설계.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 접근</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            세션 기반 추천 알고리즘 (GRU4Rec) + 시간대별 상품클릭 로그 학습<br>
+                            행동기반 타겟팅 모델 탑재 → 실시간 추천 배너 반영<br>
+                            마케팅 캠페인 결과를 피드백 루프로 재학습
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 결과</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">2.4배</p>
+                                <p class="text-sm text-gray-700">고객당 클릭률 상승</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">1.6배</p>
+                                <p class="text-sm text-gray-700">구매전환률 향상</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">39%</p>
+                                <p class="text-sm text-gray-700">마케팅 예산 대비 효율 ROI 향상</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-truck text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">물류</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">배송경로 최적화<br>지연 예측 알고리즘<br>실시간 추적 시스템</p>
+                </div>
+
+                <!-- Case Study 3: Manufacturing -->
+                <div class="bg-white rounded-2xl p-8 md:p-12">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-600">3. 제조 – 품질 불량 AI예측</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 문제</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            생산 라인에서 불량률이 특정 시간대에 급증하나 원인 파악 어려움.<br>
+                            정기 점검만으로는 선제적 대응 불가.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 모델 설계 기획</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            센서 데이터와 작업환경 요인 간 상관관계 분석 구조를 기획.<br>
+                            기계별 생산 스텝별 불량률을 매핑하고, 작업자 교대 타임과의 연관성도 포함.<br>
+                            불량 '조짐'을 나타내는 변수들(온도/압력/속도 변화 패턴 등)을 설계 단계에서 식별.<br>
+                            현장 엔지니어들과 반복 회의를 통해 의미 있는 '전조 변수' 정의.
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 접근</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            시계열 이상탐지 모델 (LSTM AutoEncoder)로 실시간 탐지<br>
+                            특정 조건에서 불량 가능성 80% 이상일 때 관리자 알림<br>
+                            피크타임 및 교대시점에 사전 점검 루틴 자동화
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 결과</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">42%</p>
+                                <p class="text-sm text-gray-700">불량률 감소</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">31%</p>
+                                <p class="text-sm text-gray-700">품질 클레임 감소</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">18%</p>
+                                <p class="text-sm text-gray-700">라인 점검 비용 절감</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-industry text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">제조</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">품질 불량 예측<br>예측 정비 시스템<br>생산 효율 최적화</p>
+                </div>
+
+                <!-- Case Study 4: Healthcare -->
+                <div class="bg-white rounded-2xl p-8 md:p-12">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-600">4. 의료 – 진단 지원 AI시스템</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 문제</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            영상 판독 시간이 길고, 경험 부족한 의사들의 오진 리스크 존재<br>
+                            반복되는 증상/이미지를 빠르게 분류하는 보조 시스템 필요
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 모델 설계 기획</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            의사마다 중요하게 보는 진단 포인트(영상의 특정 부위나 패턴)를 수집<br>
+                            판독 결과와 '질병 확진 결과' 간의 상관성을 기반으로, 학습 태그 기준을 정교화<br>
+                            영상 크기/포맷/노이즈 등 사전 처리 방식도 의료기관 상황에 맞춰 설계<br>
+                            의사 피드백을 통해 AI 진단 신뢰 점수를 시각화하는 UI도 기획
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 접근</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            CT/MRI 영상 CNN 기반 분류<br>
+                            병변 위치별 confidence map 시각화 기능 포함<br>
+                            사용자 중심 인터페이스 + 피드백 데이터 재학습 구조
+                        </p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 결과</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">38%</p>
+                                <p class="text-sm text-gray-700">진단 속도 단축</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">46%</p>
+                                <p class="text-sm text-gray-700">오진 가능성 사전 감지율 상승</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">70%</p>
+                                <p class="text-sm text-gray-700">보조 판독 시스템으로 전환율</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-hospital text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">의료</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">진단 지원 시스템<br>약물 상호작용 분석<br>환자 데이터 관리</p>
-                        </div>
+                </div>
+
+                <!-- Case Study 5: Logistics -->
+                <div class="bg-white rounded-2xl p-8 md:p-12">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-600">5. 물류 – 배송 경로 AI최적화</h3>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 문제</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            택배 배송 효율이 낮고, 기사 간 불균형 심함.<br>
+                            정체구간, 악천후 반영이 어려운 기존 시스템의 한계
+                        </p>
                     </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">교육</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">학습 성과 예측<br>개인화 커리큘럼<br>온라인 학습 분석</p>
-                        </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 모델 설계 기획</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            물류 기사 인터뷰 통해 실제 문제 구간과 피로 누적구간 파악<br>
+                            단순한 거리 최소화가 아닌, 시간/정체/도로상태 반영한 복합 조건 경로설계<br>
+                            정기배송 vs 긴급배송 구분, 우선순위 매트릭스 설계<br>
+                            기존 TMS와의 API 연동을 고려한 설계 구조화
+                        </p>
                     </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-hotel text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">호텔</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">예약 수요 예측<br>가격 최적화 전략<br>고객 만족도 분석</p>
-                        </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 접근</h4>
+                        <p class="text-gray-700 leading-relaxed">
+                            교통정보+기상API+도심 밀도 데이터 실시간 반영<br>
+                            Graph-based 최적 경로 탐색 (Dijkstra 개선 알고리즘)<br>
+                            기사별 성향 반영한 경로 커스터마이징
+                        </p>
                     </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-car text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">자동차</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">자율주행 시스템<br>예측 정비 알고리즘<br>연비 최적화 AI</p>
-                        </div>
-                    </div>
-                    <!-- 반복을 위한 복사본 -->
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-shield-alt text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">보험</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">콜센터 민원 분류<br>보험금 청구 자동화<br>리스크 평가 시스템</p>
-                        </div>
-                    </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-shopping-cart text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">유통</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">재고 예측 시스템<br>개인화 추천 엔진<br>진열 최적화 AI</p>
-                        </div>
-                    </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-truck text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">물류</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">배송경로 최적화<br>지연 예측 알고리즘<br>실시간 추적 시스템</p>
-                        </div>
-                    </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-industry text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">제조</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">품질 불량 예측<br>예측 정비 시스템<br>생산 효율 최적화</p>
-                        </div>
-                    </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-hospital text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">의료</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">진단 지원 시스템<br>약물 상호작용 분석<br>환자 데이터 관리</p>
-                        </div>
-                    </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">교육</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">학습 성과 예측<br>개인화 커리큘럼<br>온라인 학습 분석</p>
-                        </div>
-                    </div>
-                    <div class="slider-card bg-white border border-gray-200 rounded-2xl h-64 p-8 flex flex-col">
-                        <div class="flex items-center justify-start mb-6">
-                            <i class="fas fa-hotel text-blue-600 text-xl"></i>
-                        </div>
-                        <div class="text-left">
-                            <h3 class="text-gray-700 font-semibold text-lg mb-4">호텔</h3>
-                            <p class="text-base text-gray-600 leading-relaxed">예약 수요 예측<br>가격 최적화 전략<br>고객 만족도 분석</p>
+                    
+                    <div class="mb-6">
+                        <h4 class="font-bold text-lg mb-3">• 결과</h4>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">22%</p>
+                                <p class="text-sm text-gray-700">평균 배송 소요 시간 단축</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">36%</p>
+                                <p class="text-sm text-gray-700">기사 만족도 (불만 접수율) 감소</p>
+                            </div>
+                            <div class="bg-white border border-blue-100 p-4 rounded-lg">
+                                <p class="text-2xl font-bold text-blue-600">12%</p>
+                                <p class="text-sm text-gray-700">배송비 절감률 연간 추산</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- CTA Section (뉴스/게시판 심플 레이아웃) -->
-    <section class="bg-white py-60">
-        <div class="container mx-auto px-4">
-            <h2 class="text-2xl font-bold mb-8 text-gray-900 section-title">AI Biz 소식</h2>
-            <div class="flex flex-col md:flex-row gap-8 items-start">
-                <!-- 썸네일 -->
-                <div class="w-full md:w-1/3 flex justify-center mb-6 md:mb-0">
-                    <img src="assets/images/news-thumb.png" alt="뉴스 썸네일(이미지는 나중에 교체하세요)" class="rounded-xl w-full max-w-xs aspect-square object-cover border border-gray-200 animate-1">
-                </div>
-                <!-- 게시판(뉴스 리스트) -->
-                <div class="w-full md:w-2/3">
-                    <ul class="divide-y divide-gray-200 animate-2">
-                        <li class="flex justify-between items-center py-4 news-item-1">
-                            <span class="truncate text-gray-800">AI Biz, RAG 기반 지식관리 시스템 도입 사례 공개</span>
-                            <span class="text-gray-400 text-sm ml-4 whitespace-nowrap">2025.06.25</span>
-                        </li>
-                        <li class="flex justify-between items-center py-4 news-item-2">
-                            <span class="truncate text-gray-800">AI Biz, 'AI DAY 2025' 성황리 종료… AI 전략 트렌드 공유</span>
-                            <span class="text-gray-400 text-sm ml-4 whitespace-nowrap">2025.06.20</span>
-                        </li>
-                        <li class="flex justify-between items-center py-4 news-item-3">
-                            <span class="truncate text-gray-800">AI Biz, 제조 데이터 플랫폼 4년 연속 수주</span>
-                            <span class="text-gray-400 text-sm ml-4 whitespace-nowrap">2025.06.16</span>
-                        </li>
-                        <li class="flex justify-between items-center py-4 news-item-4">
-                            <span class="truncate text-gray-800">AI Biz, 스마트테크 코리아 2025 참가</span>
-                            <span class="text-gray-400 text-sm ml-4 whitespace-nowrap">2025.06.09</span>
-                        </li>
-                    </ul>
-                    <div class="mt-4 text-right news-item-5">
-                        <a href="#" class="text-blue-400 hover:text-blue-600 text-sm font-semibold transition">더 많은 뉴스 보기 &rarr;</a>
-                    </div>
-                </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
             </div>
         </div>
     </section>
 
-    <!-- Original CTA Section -->
-    <section class="bg-white py-60">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-2xl font-bold mb-8 cta-text-1">이런 기업에 추천합니다</h2>
-            
-            <div class="max-w-3xl mx-auto space-y-3 mb-12">
-                <p class="text-xl cta-text-2">AI도입을 <span class="font-bold">어떻게 시작할지 막막한 기업</span></p>
-                <p class="text-xl cta-text-3"><span class="font-bold">고정비용 / 원가절감</span>이 목표인 기업</p>
-                <p class="text-xl cta-text-4"><span class="font-bold">업무 예측성과 정확성 강화</span>가 필요한 기업</p>
-                <p class="text-xl cta-text-5">자사 내에서만 학습 가능한 <span class="font-bold">폐쇄형 모델</span>이 필요한 기업</p>
+    <!-- News Section (removed as per requirements) -->
+    <div class="border-t border-blue-100"></div>
+
+    <!-- CTA Section -->
+    <section class="bg-white snap-section">
+        <div class="container mx-auto px-4 h-full flex items-center">
+            <div class="max-w-4xl mx-auto text-center w-full">
+                <h2 class="text-3xl md:text-4xl font-bold mb-12">
+                    AI 고민, 저희와 설계단계부터 함께 논의하세요!
+                </h2>
+                
+                <div class="bg-white rounded-2xl p-8 md:p-12">
+                    <p class="text-2xl md:text-3xl font-bold mb-8 text-gray-800">
+                        지금 바로 편하게 연락주세요!!
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-center justify-center space-x-4">
+                            <i class="fas fa-phone text-blue-600 text-2xl"></i>
+                            <p class="text-2xl font-bold text-gray-800">전화 02-6402-5502</p>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <p class="text-lg text-gray-600 mb-4">연락처 남기기</p>
+                            <form class="max-w-md mx-auto">
+                                <div class="flex gap-4">
+                                    <input type="text" placeholder="연락처를 입력해주세요" class="flex-1 px-6 py-4 border border-gray-300 rounded-full focus:outline-none focus:border-blue-600">
+                                    <button type="submit" class="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition font-bold">
+                                        신청하기
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-12 text-lg text-gray-700">
+                    <p class="mb-2">www.AI-Strategylab.com</p>
+                </div>
             </div>
-            
-            <p class="text-xl font-bold mb-8 cta-text-6">지금이 AI Biz Strategy Lab을 만날 때입니다.</p>
-            
-            <button class="bg-blue-600 text-white px-8 py-4 rounded-full hover:bg-blue-700 transition font-bold cta-text-7">
-                도입 문의하기
-            </button>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-100 py-36">
+    <section class="bg-white snap-section">
+        <footer class="h-full flex items-center py-16">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between items-start mb-8">
                 <div class="mb-8 md:mb-0">
                     <div class="mb-4">
-                        <div class="text-xl font-black leading-tight text-blue-600">AI BIZ</div>
-                        <div class="text-base font-light leading-tight">STRATEGY</div>
-                        <div class="text-base font-light leading-tight">LAB</div>
+                        <div class="text-xl font-black leading-tight text-blue-600">AI 모델설계</div>
+                        <div class="text-base font-light leading-tight">연구소</div>
                     </div>
                     <div class="text-sm text-gray-600 space-y-1">
-                        <p><strong>사업자등록번호:</strong> 123-45-67890</p>
-                        <p><strong>이메일:</strong> junhelp@naver.com</p>
-                        <p><strong>전화:</strong> 02-1234-5678</p>
-                        <p><strong>주소:</strong> 서울시 마포구 양화로 동양한강트레벨 307호</p>
+                        <p><strong>전화:</strong> 02-6402-5502</p>
+                        <p><strong>웹사이트:</strong> www.AI-Strategylab.com</p>
                     </div>
                 </div>
                 <div class="text-sm text-gray-500 space-y-2">
@@ -572,11 +999,12 @@
                         <a href="#" class="hover:text-gray-700">이용약관</a>
                         <a href="#" class="hover:text-gray-700">개인정보처리방침</a>
                     </div>
-                    <p>© 2025 AI Biz Strategy Lab. All rights reserved.</p>
+                    <p>© 2025 AI 모델설계 연구소. All rights reserved.</p>
                 </div>
             </div>
         </div>
-    </footer>
+        </footer>
+    </section>
 
     <script>
         // Smooth scroll
