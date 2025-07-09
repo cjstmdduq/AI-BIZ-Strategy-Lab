@@ -24,21 +24,85 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .hero-text-1 {
-            animation: fadeInUp 1.5s ease-out;
+        .hero-sequence-1 {
+            animation: fadeInUp 1s ease-out;
         }
-        .hero-text-2 {
-            animation: fadeInUp 1.5s ease-out 0.5s both;
+        .hero-sequence-2 {
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        .hero-sequence-3 {
+            animation: fadeInUp 1s ease-out 1s both;
         }
         @keyframes fadeInUp {
             0% {
                 opacity: 0;
-                transform: translateY(50px);
+                transform: translateY(30px);
             }
             100% {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+        
+        /* Text blur animation */
+        .text-blur-in {
+            filter: blur(10px);
+            animation: blurIn 0.8s ease-out 1.5s forwards;
+        }
+        
+        .text-blur-in-delay {
+            animation-delay: 2s;
+        }
+        
+        @keyframes blurIn {
+            0% {
+                filter: blur(10px);
+            }
+            100% {
+                filter: blur(0);
+            }
+        }
+        
+        /* Section text animation trigger */
+        .section-text {
+            transform: translateY(20px);
+            transition: transform 1.2s ease-out;
+        }
+        
+        .section-text.visible {
+            transform: translateY(0);
+        }
+        
+        .section-text.delay-1 {
+            transition-delay: 0.2s;
+        }
+        
+        .section-text.delay-2 {
+            transition-delay: 0.4s;
+        }
+        
+        .section-text.delay-3 {
+            transition-delay: 0.6s;
+        }
+        
+        /* White text blur animation for sections */
+        .white-text-blur {
+            opacity: 0;
+            filter: blur(8px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .white-text-blur.visible {
+            opacity: 1;
+            filter: blur(0);
+        }
+        
+        .white-text-blur.delay-1 {
+            transition-delay: 0.8s;
+        }
+        
+        .white-text-blur.delay-2 {
+            transition-delay: 1s;
         }
         .hero-video {
             position: absolute;
@@ -116,13 +180,23 @@
             animation: bounce 2s infinite;
         }
         .scroll-arrow {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+            transition: all 0.3s ease;
+        }
+        .scroll-arrow:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.15);
         }
         @keyframes bounce {
             0%, 20%, 50%, 80%, 100% {
@@ -158,34 +232,177 @@
             }
         }
         .navbar {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform: translateY(30px);
-        }
-        .navbar-transparent {
             background-color: transparent;
-            transform: translateY(30px);
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.3s ease-in-out;
         }
-        .navbar-transparent .navbar-brand,
-        .navbar-transparent .navbar-link {
-            color: white !important;
-        }
-        .navbar-transparent .navbar-brand .logo-main {
-            color: white !important;
-        }
-        .navbar-solid {
+        
+        .navbar:hover {
             background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            transform: translateY(0);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(229, 231, 235, 0.5);
         }
-        .navbar-solid .navbar-brand,
-        .navbar-solid .navbar-link {
+        
+        .navbar .navbar-brand,
+        .navbar .navbar-link {
+            color: #ffffff !important;
+            transition: color 0.3s ease-in-out;
+        }
+        
+        .navbar:hover .navbar-brand,
+        .navbar:hover .navbar-link {
             color: #374151 !important;
+        }
+        
+        /* Process Steps Animation */
+        .process-step {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(80px);
+            transition: none;
+            width: 100%;
+            max-width: 1280px;
+        }
+        
+        .process-step.animate {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            transition: all 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        /* Individual step animations */
+        #step-1 {
+            transform: translateX(-60px) translateY(60px) scale(0.95);
+        }
+        
+        #step-1.animate {
+            transform: translateX(0) translateY(0) scale(1);
+        }
+        
+        #step-2 {
+            transform: translateX(60px) translateY(60px) scale(0.95);
+        }
+        
+        #step-2.animate {
+            transform: translateX(0) translateY(0) scale(1);
+        }
+        
+        #step-3 {
+            transform: translateX(-60px) translateY(60px) scale(0.95);
+        }
+        
+        #step-3.animate {
+            transform: translateX(0) translateY(0) scale(1);
+        }
+        
+        #step-4 {
+            transform: translateX(60px) translateY(60px) scale(0.95);
+        }
+        
+        #step-4.animate {
+            transform: translateX(0) translateY(0) scale(1);
+        }
+        
+        #step-5 {
+            transform: translateX(-60px) translateY(60px) scale(0.95);
+        }
+        
+        #step-5.animate {
+            transform: translateX(0) translateY(0) scale(1);
+        }
+        
+        .process-number {
+            transform: scale(0.7) rotate(90deg);
+            opacity: 0;
+            transition: none;
+        }
+        
+        .process-step.animate .process-number {
+            transform: scale(1) rotate(0deg);
+            opacity: 1;
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s;
+        }
+        
+        .process-detail {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: none;
+        }
+        
+        .process-step.animate .process-detail {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease-out 0.4s;
+        }
+        
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px) translateY(50px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) translateY(0) scale(1);
+            }
+        }
+        
+        @keyframes slideInFromRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px) translateY(50px) scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0) translateY(0) scale(1);
+            }
+        }
+        
+        /* Gradient animation for process numbers */
+        .process-number .bg-gradient-to-r {
+            background-size: 200% 200%;
+            animation: gradientFlow 4s ease-in-out infinite;
+        }
+        
+        @keyframes gradientFlow {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+        
+        /* Scroll progress indicator */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+        
+        .scroll-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #3B82F6, #8B5CF6, #EC4899);
+            width: 0%;
+            transition: width 0.1s ease-out;
         }
     </style>
 </head>
 <body class="bg-white">
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="scroll-progress-bar"></div>
+    </div>
+    
     <!-- Header -->
-    <header class="navbar navbar-transparent fixed top-0 w-full z-50">
+    <header class="navbar absolute top-0 w-full z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="navbar-brand">
                 <div class="text-lg font-black leading-tight text-blue-600 logo-main">AI 모델설계</div>
@@ -224,12 +441,12 @@
                     Your browser does not support the video tag.
                 </video>
                 <div class="relative z-10">
-                    <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white mb-4 hero-text-1">AI 기술보다 중요한 건 '목적설계'입니다.</h2>
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-8 hero-text-2">
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white mb-8 hero-sequence-1">
                         <span class="font-bold">AI 모델설계 연구소</span>
                     </h1>
-                    <p class="text-lg sm:text-xl text-white/90 hero-text-2">
-                        우리는 개발이 아닌 '모델 설계'로 시작합니다.<br>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-white mb-4 hero-sequence-2">AI 기술보다 중요한 건 <span class="text-blur-in">'목적설계'</span>입니다.</h2>
+                    <p class="text-lg sm:text-xl text-white/90 hero-sequence-3">
+                        우리는 개발이 아닌 <span class="text-blur-in text-blur-in-delay">'모델 설계'</span>로 시작합니다.<br>
                         기술은 도구일 뿐, 당면한 문제 해결이 목표이기 때문입니다.
                     </p>
                 </div>
@@ -239,12 +456,10 @@
         <!-- Scroll Indicator -->
         <div class="scroll-indicator">
             <div class="scroll-arrow">
-                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                <svg class="w-6 h-6 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </div>
-            <p class="text-white/80 text-sm mt-2 text-center">SCROLL DOWN</p>
-
         </div>
     </section>
 
@@ -252,21 +467,21 @@
     <section class="parallax-bg snap-section">
         <div class="container mx-auto px-4 parallax-content w-full">
             <div class="max-w-4xl mx-auto p-8">
-                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">AI 프로젝트, 왜 실패할까요?</h2>
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white section-text">AI 프로젝트, 왜 실패할까요?</h2>
                     <div class="space-y-6">
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-1">
                             많은 기업들이 AI를 도입하지만, 기대한 만큼의 성과를 내지 못하는 경우가 적지 않습니다.
                         </p>
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-2">
                             이유는 단순히 '기술이 부족해서'가 아닙니다.<br>
-                            <span class="font-bold text-white">현실을 반영한 설계가 부족했기 때문입니다.</span>
+                            <span class="font-bold text-white white-text-blur delay-3">현실을 반영한 설계가 부족했기 때문입니다.</span>
                         </p>
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-3">
                             실제 업무 흐름과 실무자의 고민, 그리고 기업마다 다른 외부 환경까지 제대로 이해하지 못한 채 만들어진 AI는, 
                             결국 '개발을 위한 개발'로 끝나버립니다.
                         </p>
-                        <p class="text-xl md:text-2xl font-bold text-white leading-relaxed">
-                            저희는 이 지점을 <span class="text-white">모델 설계</span>라는 과정을 통해 해결합니다.
+                        <p class="text-xl md:text-2xl font-bold text-white leading-relaxed section-text delay-3 white-text-blur delay-2">
+                            저희는 이 지점을 모델 설계라는 과정을 통해 해결합니다.
                         </p>
                     </div>
                 </div>
@@ -276,8 +491,8 @@
         <!-- Scroll Indicator -->
         <div class="scroll-indicator">
             <div class="scroll-arrow">
-                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </div>
         </div>
@@ -287,19 +502,19 @@
     <section class="parallax-bg snap-section">
         <div class="container mx-auto px-4 parallax-content w-full">
             <div class="max-w-4xl mx-auto p-8">
-                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">AI는 이제 '기술 하나'로는 부족합니다.</h2>
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white section-text">AI는 이제 '기술 하나'로는 부족합니다.</h2>
                     <div class="space-y-6">
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-1">
                             이제는 단일 기술만으로는 문제를 해결하기 어렵습니다.
                         </p>
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-2">
                             자연어 처리, 예측 모델, 추천 시스템, 이상 탐지 등 다양한 기술들이 유기적으로 연결되고,
                             그 안에서 현장에 최적화된 구조가 만들어져야만 실제 효과로 이어질 수 있습니다.
                         </p>
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-3">
                             이 모든 기술의 가능성과 제약을 고려해,<br>
-                            <span class="font-bold text-white">현실에 맞는 실용적 구조를 설계하는 것</span><br>
-                            그게 바로 <span class="text-white font-bold">모델 설계</span>입니다.
+                            <span class="font-bold text-white white-text-blur delay-1">현실에 맞는 실용적 구조를 설계하는 것</span><br>
+                            그게 바로 <span class="text-white font-bold white-text-blur delay-2">모델 설계</span>입니다.
                         </p>
                     </div>
                 </div>
@@ -309,8 +524,8 @@
         <!-- Scroll Indicator -->
         <div class="scroll-indicator">
             <div class="scroll-arrow">
-                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </div>
         </div>
@@ -320,14 +535,14 @@
     <section class="parallax-bg snap-section">
         <div class="container mx-auto px-4 parallax-content w-full">
             <div class="max-w-4xl mx-auto p-8">
-                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">기술보다 중요한 것은 'AI설계력'입니다.</h2>
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white section-text">기술보다 중요한 것은 'AI설계력'입니다.</h2>
                     <div class="space-y-6">
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-1">
                             많은 AI 개발사들은 자사의 보유 기술에 기반한 제안을 합니다.<br>
-                            하지만 그런 방식으로는 진짜 고객 맞춤형 설계를 만들기 어렵습니다.
+                            하지만 그런 방식으로는 <span class="font-bold text-white white-text-blur">진짜 고객 맞춤형 설계</span>를 만들기 어렵습니다.
                         </p>
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
-                            자기 기술에 맞춘 개발은 가능하지만, <span class="font-bold text-white">고객 문제에 맞춘 설계는 어렵기 때문입니다.</span>
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-2">
+                            자기 기술에 맞춘 개발은 가능하지만, <span class="font-bold text-white white-text-blur delay-1">고객 문제에 맞춘 설계는 어렵기 때문입니다.</span>
                         </p>
                     </div>
                 </div>
@@ -337,8 +552,8 @@
         <!-- Scroll Indicator -->
         <div class="scroll-indicator">
             <div class="scroll-arrow">
-                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </div>
         </div>
@@ -348,17 +563,17 @@
     <section class="parallax-bg snap-section">
         <div class="container mx-auto px-4 parallax-content w-full">
             <div class="max-w-4xl mx-auto p-8">
-                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">우리는 다르게 접근합니다.</h2>
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white section-text">우리는 다르게 접근합니다.</h2>
                     <div class="space-y-6">
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
-                            저희는 기술이 아닌 <span class="font-bold text-white">'문제'</span>에서 출발합니다.
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-1">
+                            저희는 기술이 아닌 <span class="font-bold text-white white-text-blur delay-1">'문제'</span>에서 출발합니다.
                         </p>
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-2">
                             수백가지나 되는 특정 AI구현 기술을 먼저 결정하기 보다,<br>
                             고객이 겪는 현실을 함께 이해하고, 필요한 구조를 먼저 설계합니다.
                         </p>
-                        <p class="text-xl md:text-2xl font-bold text-white leading-relaxed">
-                            기술은 그 뒤에 오는 도구일 뿐입니다.
+                        <p class="text-xl md:text-2xl font-bold text-white leading-relaxed section-text delay-3">
+                            <span class="white-text-blur delay-2">기술은 그 뒤에 오는 도구일 뿐입니다.</span>
                         </p>
                     </div>
                 </div>
@@ -368,8 +583,8 @@
         <!-- Scroll Indicator -->
         <div class="scroll-indicator">
             <div class="scroll-arrow">
-                <svg class="w-5 h-5 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </div>
         </div>
@@ -379,102 +594,263 @@
     <section class="parallax-bg snap-section">
         <div class="container mx-auto px-4 parallax-content w-full">
             <div class="max-w-4xl mx-auto p-8">
-                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white">우리가 존재하는 이유</h2>
+                <h2 class="text-2xl md:text-3xl font-bold mb-8 text-white section-text">우리가 존재하는 이유</h2>
                     <div class="space-y-6">
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-1">
                             우리는 다양한 기술과 경험을 융합하여,<br>
                             여러분의 조직에 가장 적합한 AI 구조를 설계합니다.
                         </p>
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-2">
                             단순한 기술 제안이 아닌,<br>
-                            <span class="font-bold text-white">실제 업무에 녹아들 수 있는 구조.</span>
+                            <span class="font-bold text-white white-text-blur delay-1">실제 업무에 녹아들 수 있는 구조.</span>
                         </p>
-                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed">
+                        <p class="text-xl md:text-2xl font-semibold text-white/80 leading-relaxed section-text delay-3">
                             그걸 설계하는 것,<br>
-                            <span class="text-white font-bold">그게 바로 우리가 하는 일입니다.</span>
+                            <span class="text-white font-bold white-text-blur delay-2">그게 바로 우리가 하는 일입니다.</span>
                         </p>
                     </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Flow Section -->
-    <section class="bg-white snap-section">
-        <div class="container mx-auto px-4 h-full flex flex-col justify-center">
-            <h2 class="text-3xl font-bold mb-16 text-center">서비스 흐름도</h2>
-            
-            <div class="max-w-5xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
-                    <!-- Step 1 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
-                            1
+    <!-- Service Flow Title Section -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 h-full flex items-center justify-center parallax-content">
+            <h2 class="text-4xl md:text-5xl font-bold text-center text-white section-text">우리의 작업 프로세스</h2>
+        </div>
+    </section>
+    
+    <!-- Step 1 - 현장 문제 파악 -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 h-full flex items-center justify-center parallax-content">
+            <div class="process-step" id="step-1">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div class="text-center lg:text-left">
+                            <div class="process-number w-32 h-32 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-3xl flex items-center justify-center text-5xl font-bold mb-8 mx-auto lg:mx-0 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                                1
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white">현장 문제 파악</h3>
+                            <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                                "고객과의 깊은 대화로부터 시작합니다"
+                            </p>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">현장 문제 파악</h3>
-                        <p class="text-sm text-gray-600">"고객과의 대화로부터 시작합니다"</p>
-                    </div>
-                    
-                    <!-- Arrow -->
-                    <div class="hidden md:flex items-center justify-center">
-                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </div>
-                    
-                    <!-- Step 2 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
-                            2
+                        <div class="process-detail bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                            <h4 class="text-2xl font-bold text-white mb-6">어떻게 진행하나요?</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">현장 인터뷰</h5>
+                                        <p class="text-white/80">실제 업무를 담당하는 분들과 직접 대화합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">문제점 정의</h5>
+                                        <p class="text-white/80">표면적 문제가 아닌 근본적 원인을 찾습니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">목표 설정</h5>
+                                        <p class="text-white/80">AI로 해결 가능한 구체적 목표를 설정합니다</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="font-bold text-lg mb-2">모델 설계</h3>
-                        <p class="text-sm text-gray-600">"해결을 위한 구조를 먼저 만듭니다"</p>
-                    </div>
-                    
-                    <!-- Arrow -->
-                    <div class="hidden md:flex items-center justify-center">
-                        <svg class="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                        </svg>
-                    </div>
-                    
-                    <!-- Step 3 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
-                            3
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">기술 선택</h3>
-                        <p class="text-sm text-gray-600">"목적에 맞는 기술을 고릅니다"</p>
-                    </div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start mt-12 md:ml-20">
-                    <!-- Step 4 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
-                            4
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">AI 개발 연계</h3>
-                        <p class="text-sm text-gray-600">"개발자 언어로 정확히 전달합니다"</p>
-                    </div>
-                    
-                    <!-- Step 5 -->
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 mx-auto">
-                            5
-                        </div>
-                        <h3 class="font-bold text-lg mb-2">적용 및 피드백</h3>
-                        <p class="text-sm text-gray-600">"현장에서 작동하는 AI로 검증합니다"</p>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Scroll Indicator -->
-        <div class="scroll-indicator">
-            <div class="scroll-arrow">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
+    </section>
+    
+    <!-- Step 2 - 모델 설계 -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 h-full flex items-center justify-center parallax-content">
+            <div class="process-step" id="step-2">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div class="order-2 lg:order-1 process-detail bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                            <h4 class="text-2xl font-bold text-white mb-6">설계 프로세스</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">데이터 구조 분석</h5>
+                                        <p class="text-white/80">기존 데이터의 품질과 활용 가능성을 분석합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">알고리즘 선정</h5>
+                                        <p class="text-white/80">문제에 가장 적합한 AI 알고리즘을 선택합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">워크플로우 설계</h5>
+                                        <p class="text-white/80">실제 업무 환경에 맞는 처리 흐름을 설계합니다</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2 text-center lg:text-right">
+                            <div class="process-number w-32 h-32 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-3xl flex items-center justify-center text-5xl font-bold mb-8 mx-auto lg:ml-auto lg:mr-0 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                                2
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white">모델 설계</h3>
+                            <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                                "해결을 위한 정교한 구조를 먼저 만듭니다"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Step 3 - 기술 선택 -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 h-full flex items-center justify-center parallax-content">
+            <div class="process-step" id="step-3">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div class="text-center lg:text-left">
+                            <div class="process-number w-32 h-32 bg-gradient-to-r from-pink-500 to-orange-500 text-white rounded-3xl flex items-center justify-center text-5xl font-bold mb-8 mx-auto lg:mx-0 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                                3
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white">기술 선택</h3>
+                            <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                                "목적에 가장 적합한 기술을 선별합니다"
+                            </p>
+                        </div>
+                        <div class="process-detail bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                            <h4 class="text-2xl font-bold text-white mb-6">기술 선택 기준</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">성능 vs 비용</h5>
+                                        <p class="text-white/80">최적의 성능을 낼 수 있는 비용 효율적 기술을 선택합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">확장성 고려</h5>
+                                        <p class="text-white/80">향후 데이터 증가에도 대응할 수 있는 기술을 선정합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">운영 편의성</h5>
+                                        <p class="text-white/80">현장에서 실제로 사용하기 쉬운 기술을 우선합니다</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Step 4 - AI 개발 연계 -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 h-full flex items-center justify-center parallax-content">
+            <div class="process-step" id="step-4">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div class="order-2 lg:order-1 process-detail bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                            <h4 class="text-2xl font-bold text-white mb-6">개발 연계 프로세스</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">기술 명세서 작성</h5>
+                                        <p class="text-white/80">개발자가 이해할 수 있는 상세한 기술 문서를 제공합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">검증 기준 설정</h5>
+                                        <p class="text-white/80">AI 모델의 성능을 측정할 구체적 기준을 제시합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">개발 가이드라인</h5>
+                                        <p class="text-white/80">효율적인 개발을 위한 Best Practice를 공유합니다</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="order-1 lg:order-2 text-center lg:text-right">
+                            <div class="process-number w-32 h-32 bg-gradient-to-r from-orange-500 to-red-500 text-white rounded-3xl flex items-center justify-center text-5xl font-bold mb-8 mx-auto lg:ml-auto lg:mr-0 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                                4
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white">AI 개발 연계</h3>
+                            <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                                "개발자 언어로 정확히 전달합니다"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Step 5 - 적용 및 피드백 -->
+    <section class="parallax-bg snap-section">
+        <div class="container mx-auto px-4 h-full flex items-center justify-center parallax-content">
+            <div class="process-step" id="step-5">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                        <div class="text-center lg:text-left">
+                            <div class="process-number w-32 h-32 bg-gradient-to-r from-red-500 to-blue-500 text-white rounded-3xl flex items-center justify-center text-5xl font-bold mb-8 mx-auto lg:mx-0 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                                5
+                            </div>
+                            <h3 class="text-3xl md:text-4xl font-bold mb-6 text-white">적용 및 피드백</h3>
+                            <p class="text-xl text-white/90 mb-8 leading-relaxed">
+                                "현장에서 작동하는 AI로 검증합니다"
+                            </p>
+                        </div>
+                        <div class="process-detail bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+                            <h4 class="text-2xl font-bold text-white mb-6">지속적 개선</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center text-white font-bold text-sm">1</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">현장 테스트</h5>
+                                        <p class="text-white/80">실제 업무 환경에서 AI 모델을 테스트합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-sm">2</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">피드백 수집</h5>
+                                        <p class="text-white/80">사용자 의견을 체계적으로 수집하고 분석합니다</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-4">
+                                    <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-sm">3</div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-lg">지속적 최적화</h5>
+                                        <p class="text-white/80">모델을 계속 개선하여 더 나은 성능을 달성합니다</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -483,7 +859,7 @@
     <section class="snap-section bg-white">
         <div class="container mx-auto px-4 h-full flex flex-col justify-center">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center">기존 방식 VS 우리 방식</h2>
+            <h2 class="text-3xl font-bold mb-12 text-center section-text">기존 방식 VS 우리 방식</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Traditional Approach -->
@@ -529,8 +905,8 @@
         <!-- Scroll Indicator -->
         <div class="scroll-indicator">
             <div class="scroll-arrow">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                <svg class="w-5 h-5 text-gray-600/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </div>
         </div>
@@ -929,8 +1305,8 @@
         <!-- Scroll Indicator -->
         <div class="scroll-indicator">
             <div class="scroll-arrow">
-                <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                <svg class="w-5 h-5 text-gray-600/30" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"></path>
                 </svg>
             </div>
         </div>
@@ -948,7 +1324,7 @@
                 </h2>
                 
                 <div class="bg-white rounded-2xl p-8 md:p-12">
-                    <p class="text-2xl md:text-3xl font-bold mb-8 text-gray-800">
+                    <p class="text-2xl md:text-3xl font-bold mb-8 text-gray-800 text-blur-in text-blur-in-delay">
                         지금 바로 편하게 연락주세요!!
                     </p>
                     
@@ -1018,24 +1394,76 @@
             });
         });
 
-        // Navbar scroll effect
+        // Parallax effect for floating banner
         window.addEventListener('scroll', () => {
-            const navbar = document.querySelector('.navbar');
             const scrolled = window.pageYOffset;
-            
-            if (scrolled > 80) {
-                navbar.classList.remove('navbar-transparent');
-                navbar.classList.add('navbar-solid');
-            } else {
-                navbar.classList.remove('navbar-solid');
-                navbar.classList.add('navbar-transparent');
-            }
-            
-            // Parallax effect
             const parallax = document.querySelector('.floating-banner');
             if (parallax) {
                 parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
             }
+        });
+        
+        // Intersection Observer for text animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Process steps animation observer
+        const processObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('animate')) {
+                    // Immediate animation when section is visible
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, {
+            threshold: 0.3, // Element must be 30% visible
+            rootMargin: '0px' // No offset
+        });
+        
+        // Scroll progress
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            
+            const progressBar = document.querySelector('.scroll-progress-bar');
+            if (progressBar) {
+                progressBar.style.width = scrollPercent + '%';
+            }
+        }
+        
+        // Observe all section text elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const sectionTexts = document.querySelectorAll('.section-text');
+            sectionTexts.forEach(text => {
+                observer.observe(text);
+            });
+            
+            // Observe white text blur elements
+            const whiteTextBlurs = document.querySelectorAll('.white-text-blur');
+            whiteTextBlurs.forEach(text => {
+                observer.observe(text);
+            });
+            
+            // Observe process steps
+            const processSteps = document.querySelectorAll('.process-step');
+            processSteps.forEach(step => {
+                processObserver.observe(step);
+            });
+            
+            // Add scroll progress listener
+            window.addEventListener('scroll', updateScrollProgress);
+            updateScrollProgress(); // Initial call
         });
     </script>
 </body>
